@@ -13,5 +13,5 @@ Template = {
     'F':    0.0
 }
 
-def Update_GPA(Course_Grade, Course_Crh):
-    return float(Template[Course_Grade]*float(Course_Crh))
+def Update_GPA(letter, Course_Crh):
+    return float(Template[letter]*float(Course_Crh))
