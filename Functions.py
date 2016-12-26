@@ -15,5 +15,3 @@ Template = {
 
 def Update_GPA(Course_Grade, Course_Crh):
     return float(Template[Course_Grade]*float(Course_Crh))
-
-#def Help_Printer

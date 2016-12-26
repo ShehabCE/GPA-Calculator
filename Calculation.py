@@ -13,12 +13,14 @@ Course_Crh = {}
 #Overall GPA.
 GPA = 0.0
 Credit_Count = 0
+
 #Data Structure for User. Example below
 #Student_Data = {
 #                   {'CS106': A,
 #                   'RHET101': B},
 #                   3.5
 #                  }
+
 Student_Data = {
     "Courses": Course_Grade,
     "Overall GPA": GPA
