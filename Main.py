@@ -25,15 +25,16 @@ while True:
                   "3- Show GPA\n"
                   "4- Show Credits\n"
                   "5- Show Current Data\n"
-                  "6- Save and Exit\n")
+                  "6- Show Courses\n"
+                  "7- Save and Exit")
             choice = int(input("->"))
             if choice == 1:
                 #Add Grade
                 print("~~~ Adding Grade ~~~~")
                 print("=" * 25)
                 Add_CourseName = input("->Course Name:")
-                Add_LetterGrade = input("->Course Letter Grade:")
-                Add_CreditHR = float(input("->Course Credit Hour:"))
+                Add_LetterGrade = input("->Course Letter Grade:").upper()
+                Add_CreditHR = int(input("->Course Credit Hour:"))
                 S.Add_Grade(Add_CourseName, Add_LetterGrade, Add_CreditHR)
                 continue
 
@@ -60,6 +61,9 @@ while True:
                 print(_d["Courses"])
 
             elif choice == 6:
+                S.Show_Student_Courses()
+
+            elif choice == 7:
                 #Save File to JSON and Exit
                 with open('Profile.json', mode='w', encoding='utf-8') as file:
                     json.dump(S.retrieve_Student_Data(), file, indent=2)
@@ -73,21 +77,26 @@ while True:
 
         S = Student.Student(data["Student Name"])
         S.set_Student_Data(data)
+        S.GPA = data["Overall GPA"]
+        S.CreditCount = data["Credit Hours"]
+        S.List_of_Courses = data["Courses"].keys()
+
         while True:
             print("1- Add Grade\n"
                   "2- Remove Grade\n"
                   "3- Show GPA\n"
                   "4- Show Credits\n"
                   "5- Show Current Data\n"
-                  "6- Save and Exit\n")
+                  "6- Show Courses\n"
+                  "7- Save and Exit")
             choice = int(input("->"))
             if choice == 1:
                 #Add Grade
                 print("~~~ Adding Grade ~~~~")
                 print("=" * 25)
                 Add_CourseName = input("->Course Name:")
-                Add_LetterGrade = input("->Course Letter Grade:")
-                Add_CreditHR = float(input("->Course Credit Hour:"))
+                Add_LetterGrade = input("->Course Letter Grade:").upper()
+                Add_CreditHR = int(input("->Course Credit Hour:"))
                 S.Add_Grade(Add_CourseName, Add_LetterGrade, Add_CreditHR)
                 continue
 
@@ -114,6 +123,9 @@ while True:
                 print(_d["Courses"])
 
             elif choice == 6:
+                S.Show_Student_Courses()
+
+            elif choice == 7:
                 #Save File to JSON and Exit
                 with open('Profile.json', mode='w', encoding='utf-8') as file:
                     json.dump(S.retrieve_Student_Data(), file, indent=2)
